@@ -107,6 +107,13 @@
                 document.getElementById("totalPengeluaran").innerText = totalPengeluaran.toLocaleString();
                 document.getElementById("saldoAkhir").innerText = saldo.toLocaleString();
             }
+
+            function hapusSemuaData(){
+                document.getElementById("dataKeuangan").innerHTML ="";
+                totalPemasukkan = 0;
+                totalPengeluaran = 0;
+                updateSaldo();
+            }
         </script>
       </body>
 </html>
