@@ -114,6 +114,23 @@
                 totalPengeluaran = 0;
                 updateSaldo();
             }
+
+            function hapusBarisTerakhir(){
+                let table = document.getElementById("dataKeuangan");
+                if(table.rows.length >0){
+                    let lastRow = table.rows[table.rows.length - 1]
+                    let tipe = lastRow.cells[2].innerText.toLowerCase();
+                    let jumlah = parseFloat(lastRow.cells[3].innerText.replace("Rp ", "").replace(/,/g, ""));
+                    
+                    if (tipe==="pemasukkan"){
+                        totalPemasukkan -= jumlah;
+                    }else{
+                        totalPengeluaran -= jumlah;
+                    }
+                    table.deleteRow(table.rows.length - 1);
+                    updateSaldo();
+                }
+            }
         </script>
       </body>
 </html>
