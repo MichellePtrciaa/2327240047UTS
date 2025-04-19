@@ -69,6 +69,24 @@
                     <th>Jumlah</th>
                 </tr>
             </thead>
+            <tbody id="dataKeuangan"></tbody>
         </table>
+
+        <script>
+            let totalPemasukkan = 0;
+            let totalPengeluaran = 0;
+
+            function tambahTransaksi(){
+                let tanggal = document.getElementById("tanggal").value;
+                let keterangan = document.getElementById("keterangan").value;
+                let tipe = document.getElementById("tipeTransaksi").value;
+                let jumlah = document.getElementById("jumlah").value;
+
+                if(tanggal === "" || keterangan ==="" || jumlah === "" || isNaN(jumlah)||jumlah<= 0){
+                    alert("Mohon isi semua data dengan benar!");
+                    return;
+                }
+            }
+        </script>
       </body>
 </html>
