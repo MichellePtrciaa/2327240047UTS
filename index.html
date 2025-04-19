@@ -98,6 +98,14 @@
                 }else{
                     totalPengeluaran += jumlah;
                 }
+                updateSaldo();
+            }
+
+            function updateSaldo(){
+                let saldo = totalPemasukkan - totalPengeluaran;
+                document.getElementById("totalPemasukkan").innerText = totalPemasukkan.toLocaleString();
+                document.getElementById("totalPengeluaran").innerText = totalPengeluaran.toLocaleString();
+                document.getElementById("saldoAkhir").innerText = saldo.toLocaleString();
             }
         </script>
       </body>
