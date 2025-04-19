@@ -131,6 +131,23 @@
                     updateSaldo();
                 }
             }
+
+            async function simpanPDF() {
+                const {jsPDF} = window.jspdf;
+                const doc = new jsPDF('p', 'pt','a4');
+
+                const element = document.querySelector(".table");
+
+                await html2canvas(element, { scale: 2 }).then((canvas) => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const imgProps = doc.getImageProperties(imgData);
+                    const pdfWidth = doc.internal.pageSize.getWidth();
+                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                    doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    doc.save('laporan-keuangan.pdf');
+                });
+            }
         </script>
       </body>
 </html>
